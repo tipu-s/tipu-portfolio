@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Mohammad Tipu Sultan | Senior Android Engineer | Kotlin | WearOS | Systems | Fintech" />
+  <title>Mohammad Tipu Sultan | Senior Android Engineer</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: rgba(255,255,255,0.06);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --soft: rgba(255,255,255,0.12);
+      --accent: #6ee7ff;
+      --accent2: #a78bfa;
+      --ok: #34d399;
+      --max: 1040px;
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    body[data-theme="light"]{
+      --bg: #f7f7fb;
+      --card: rgba(0,0,0,0.04);
+      --text: rgba(0,0,0,0.88);
+      --muted: rgba(0,0,0,0.62);
+      --soft: rgba(0,0,0,0.10);
+      --shadow: 0 16px 40px rgba(0,0,0,0.10);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(167,139,250,0.25), transparent 55%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(110,231,255,0.18), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px 80px; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dot {
+      width: 12px; height: 12px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(110,231,255,0.10);
+    }
+    .name { font-weight: 700; letter-spacing: 0.2px; }
+    .muted { color: var(--muted); }
+
+    .btnrow { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .btn {
+      border: 1px solid var(--soft);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 140ms ease, background 140ms ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.05); text-decoration: none; }
+    body[data-theme="light"] .btn:hover { background: rgba(0,0,0,0.05); }
+    .btn.primary {
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #0b0c10;
+      font-weight: 700;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--soft);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.12; letter-spacing: -0.2px; }
+    .subtitle { margin: 0 0 14px; font-size: 16px; color: var(--muted); }
+    .pillrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .pill {
+      border: 1px solid var(--soft);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.02);
+    }
+    body[data-theme="light"] .pill { background: rgba(0,0,0,0.02); }
+
+    .proof {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 520px) { .proof { grid-template-columns: 1fr; } }
+    .kpi {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--soft);
+      background: rgba(255,255,255,0.02);
+    }
+    body[data-theme="light"] .kpi { background: rgba(0,0,0,0.02); }
+    .kpi .n { font-weight: 800; font-size: 18px; }
+    .kpi .t { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+    .section { margin-top: 18px; }
+    .section h2 { margin: 0 0 10px; font-size: 18px; letter-spacing: 0.1px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
+
+    .proj h3 { margin: 0 0 6px; font-size: 16px; }
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+    .meta span { border: 1px solid var(--soft); padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.02); }
+    body[data-theme="light"] .meta span { background: rgba(0,0,0,0.02); }
+
+    .bullets { margin: 0; padding-left: 18px; color: var(--text); }
+    .bullets li { margin: 7px 0; }
+    .small { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+    .taglist { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid var(--soft);
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.02);
+    }
+    body[data-theme="light"] .tag { background: rgba(0,0,0,0.02); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <div class="name">Mohammad Tipu Sultan</div>
+          <div class="muted">Manchester, UK • Senior Android Engineer</div>
+        </div>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn" href="https://linkedin.com/in/tipu" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/tipu-s" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn primary" href="mailto:tipu.ru.cse@gmail.com">Email me</a>
+        <button class="btn" id="themeBtn" type="button">Toggle theme</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Senior Android Engineer<br/>Kotlin • WearOS • Systems</h1>
+        <p class="subtitle">
+          I build reliable Android and WearOS products at scale. I led core system services for Samsung Galaxy Watch and
+          owned architecture and delivery for a fintech Android app serving 50,000+ users.
+        </p>
+
+        <div class="pillrow">
+          <div class="pill">Kotlin expert</div>
+          <div class="pill">Clean Architecture</div>
+          <div class="pill">Performance and stability</div>
+          <div class="pill">Security focused delivery</div>
+          <div class="pill">Release ownership</div>
+          <div class="pill">Mentoring and tech lead</div>
+        </div>
+
+        <p class="small">
+          Contact: +44 07438 768349 • tipu.ru.cse@gmail.com
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 10px;">Proof</h2>
+        <div class="proof">
+          <div class="kpi">
+            <div class="n">50,000+ users</div>
+            <div class="t">Fintech Android platform</div>
+          </div>
+          <div class="kpi">
+            <div class="n">99.9% uptime</div>
+            <div class="t">Operational target maintained</div>
+          </div>
+          <div class="kpi">
+            <div class="n">10x stability</div>
+            <div class="t">Core system services impact</div>
+          </div>
+          <div class="kpi">
+            <div class="n">90% fewer incidents</div>
+            <div class="t">Root cause and fixes</div>
+          </div>
+        </div>
+
+        <div class="section" style="margin-top:14px;">
+          <h2>Now</h2>
+          <div class="muted">
+            Open to Senior Android Engineer roles in Manchester or remote UK. Fintech, platform, or WearOS welcome.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Featured work</h2>
+      <div class="grid2">
+        <div class="card proj">
+          <h3>Fintech Android Platform • Techetron Ventures</h3>
+          <div class="meta">
+            <span>Android</span><span>Kotlin</span><span>Retrofit</span><span>Flow</span><span>CI/CD</span>
+          </div>
+          <ul class="bullets">
+            <li>Owned architecture and delivery for the core Android app serving 50,000+ users.</li>
+            <li>Improved backend integration and responsiveness with Retrofit and Flow, cutting network latency by 30%.</li>
+            <li>Implemented secure coding and runtime protections aligned to real world mobile threat models.</li>
+            <li>Led releases and automated CI/CD to keep production builds predictable and safe.</li>
+          </ul>
+        </div>
+
+        <div class="card proj">
+          <h3>Galaxy Watch System Services • Samsung R and D</h3>
+          <div class="meta">
+            <span>WearOS</span><span>Kotlin</span><span>Java</span><span>C or C++</span><span>Systems</span>
+          </div>
+          <ul class="bullets">
+            <li>Technical lead for core services across Galaxy Watch 4 to 7 series.</li>
+            <li>Delivered 10x stability improvement and reduced incidents by 90% through disciplined RCA and refactors.</li>
+            <li>Drove architectural decisions for SDK components focused on security, performance, and resource constraints.</li>
+            <li>Built secure ingestion pipelines from sensors to user facing features.</li>
+          </ul>
+        </div>
+
+        <div class="card proj">
+          <h3>Quotes Creator • Play Store</h3>
+          <div class="meta">
+            <span>Android</span><span>Kotlin</span><span>Rendering</span><span>Sharing</span>
+          </div>
+          <ul class="bullets">
+            <li>30+ fonts and 50+ HD backgrounds.</li>
+            <li>4.8 rating and 10K+ downloads.</li>
+            <li>High fidelity image export and social sharing flows.</li>
+          </ul>
+          <p class="small">
+            Link: <a href="https://play.google.com/store/apps/details?id=com.diatomicsoft.quotescreator" target="_blank" rel="noreferrer">Play Store</a>
+          </p>
+        </div>
+
+        <div class="card proj">
+          <h3>Smart Bancharampur • Play Store</h3>
+          <div class="meta">
+            <span>Android</span><span>Kotlin</span><span>Retrofit</span><span>Jetpack</span>
+          </div>
+          <ul class="bullets">
+            <li>Community utility app with local info, routes, and highlights.</li>
+            <li>1,000+ downloads on Play Store.</li>
+            <li>Built with Kotlin, Retrofit, and Jetpack components.</li>
+          </ul>
+          <p class="small">
+            Link: <a href="https://play.google.com/store/apps/details?id=com.diatomicsoft.bancharampur" target="_blank" rel="noreferrer">Play Store</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section split">
+      <div class="card">
+        <h2>Skills</h2>
+        <div class="taglist">
+          <div class="tag">Kotlin</div>
+          <div class="tag">Android SDK</div>
+          <div class="tag">WearOS</div>
+          <div class="tag">Jetpack Compose</div>
+          <div class="tag">MVVM and MVI</div>
+          <div class="tag">Clean Architecture</div>
+          <div class="tag">Coroutines and Flow</div>
+          <div class="tag">Retrofit and OkHttp</div>
+          <div class="tag">SQLite</div>
+          <div class="tag">Performance profiling</div>
+          <div class="tag">Crash and ANR analysis</div>
+          <div class="tag">CI/CD</div>
+          <div class="tag">Unit and integration tests</div>
+          <div class="tag">C or C++</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Awards and education</h2>
+        <ul class="bullets">
+          <li>Samsung Coding Competency exams, top 20% globally.</li>
+          <li>Excellence in Outstanding Contribution, 2024 and 2022.</li>
+          <li>MSc Artificial Intelligence and Robotics, University of Huddersfield, part time, Feb 2025 to present.</li>
+          <li>BSc Computer Science and Engineering, University of Rajshahi, 2015 to 2019.</li>
+        </ul>
+        <p class="small">
+          Tip: add one PDF link to your CV here once you upload it to the same repo.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="muted" style="margin-top:6px;">
+          If you are hiring for Android, fintech mobile, or WearOS roles, email me and I will reply quickly.
+        </p>
+        <div class="btnrow" style="justify-content:flex-start; margin-top:10px;">
+          <a class="btn primary" href="mailto:tipu.ru.cse@gmail.com">Email</a>
+          <a class="btn" href="https://linkedin.com/in/tipu" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/tipu-s" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Built as a simple static site so it loads fast and works everywhere.
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const key = "mts_theme";
+      const saved = localStorage.getItem(key);
+      if (saved === "light") document.body.setAttribute("data-theme", "light");
+
+      const btn = document.getElementById("themeBtn");
+      btn.addEventListener("click", () => {
+        const isLight = document.body.getAttribute("data-theme") === "light";
+        if (isLight) {
+          document.body.removeAttribute("data-theme");
+          localStorage.setItem(key, "dark");
+        } else {
+          document.body.setAttribute("data-theme", "light");
+          localStorage.setItem(key, "light");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
