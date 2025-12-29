@@ -2,28 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mohammad Tipu Sultan | Portfolio</title>
   <meta name="description" content="Senior Android Engineer portfolio" />
 
   <style>
     :root{
       --bg1:#fff5f7;
-      --bg2:#f3fbff;
+      --bg2:#f2fbff;
       --ink:#0f172a;
       --muted:#64748b;
-      --card:#ffffff;
+      --card:rgba(255,255,255,.75);
       --stroke:rgba(15,23,42,.10);
+      --shadow:0 18px 60px rgba(2,6,23,.10);
+      --radius:20px;
+      --max:1180px;
 
-      --primary:#06b6d4;
-      --primary2:#22c55e;
+      --cyan:#06b6d4;
       --pink:#fb7185;
       --yellow:#fbbf24;
       --purple:#a78bfa;
-
-      --shadow:0 18px 60px rgba(2,6,23,.10);
-      --radius:18px;
-      --max:1180px;
+      --green:#22c55e;
     }
 
     *{box-sizing:border-box}
@@ -53,46 +52,48 @@
     .nav{
       display:flex;
       align-items:center;
-      gap:16px;
       justify-content:space-between;
+      gap:14px;
       position:relative;
-      z-index:3;
+      z-index:10;
     }
 
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:1000;
       letter-spacing:.2px;
     }
 
     .logoMark{
-      width:34px; height:34px;
-      display:grid; place-items:center;
+      width:36px;height:36px;
       border-radius:12px;
-      background:rgba(255,255,255,.55);
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.70);
       border:1px solid var(--stroke);
-      box-shadow:0 8px 30px rgba(2,6,23,.08);
+      box-shadow:0 10px 34px rgba(2,6,23,.10);
       overflow:hidden;
     }
 
     .menu{
       display:flex;
       align-items:center;
-      gap:28px;
+      gap:26px;
       padding:10px 16px;
       border-radius:999px;
-      background:rgba(255,255,255,.55);
+      background:rgba(255,255,255,.65);
       border:1px solid var(--stroke);
       backdrop-filter: blur(10px);
     }
     .menu a{
       font-size:14px;
+      font-weight:900;
       color:rgba(15,23,42,.78);
-      font-weight:600;
     }
     .menu a:hover{color:rgba(15,23,42,.95)}
 
-    .navActions{
+    .actions{
       display:flex; align-items:center; gap:10px;
     }
 
@@ -104,24 +105,19 @@
       padding:11px 16px;
       border-radius:12px;
       border:1px solid var(--stroke);
-      background:rgba(255,255,255,.60);
-      font-weight:700;
+      background:rgba(255,255,255,.70);
+      font-weight:1000;
       cursor:pointer;
+      box-shadow: 0 12px 32px rgba(2,6,23,.08);
     }
     .btn.primary{
       border:none;
-      color:#06202a;
-      background:linear-gradient(135deg, var(--primary), #34d399);
-      box-shadow: 0 18px 45px rgba(6,182,212,.24);
-    }
-    .btn.icon{
-      width:44px; height:44px; padding:0;
-      border-radius:14px;
+      color:#042028;
+      background:linear-gradient(135deg, var(--cyan), #34d399);
+      box-shadow: 0 18px 44px rgba(6,182,212,.22);
     }
 
-    .hamburger{display:none}
-
-    /* Hero */
+    /* Hero layout */
     .hero{
       margin-top:26px;
       display:grid;
@@ -132,56 +128,33 @@
       z-index:2;
     }
 
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
     .heroLeft{
-      position:relative;
       min-height:520px;
+      padding:22px;
+      position:relative;
+      overflow:hidden;
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      padding:24px;
-      border-radius:28px;
     }
 
-    .portraitShell{
-      width:min(420px, 100%);
-      aspect-ratio: 4 / 5;
-      border-radius:28px;
-      background:
-        radial-gradient(160px 160px at 30% 25%, rgba(251,191,36,.65), transparent 60%),
-        radial-gradient(220px 200px at 70% 40%, rgba(6,182,212,.55), transparent 62%),
-        radial-gradient(260px 220px at 45% 85%, rgba(167,139,250,.45), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.35));
-      border:1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-      display:grid;
-      place-items:end center;
-      padding:16px;
-    }
-
-    .portrait{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:22px;
-      border:1px solid rgba(15,23,42,.08);
-      background:#fff;
-      display:block;
-      filter:saturate(1.05) contrast(1.02);
-    }
-
+    /* Decorative shapes */
     .shapeStar{
       position:absolute;
-      left:-8px;
-      top:70px;
+      left:-6px;
+      top:84px;
       width:56px;
       transform: rotate(-12deg);
-      opacity:.85;
-      z-index:1;
+      opacity:.9;
       pointer-events:none;
     }
-
     .shapeOrbit{
       position:absolute;
       right:34px;
@@ -190,7 +163,6 @@
       height:120px;
       pointer-events:none;
     }
-
     .shapeOrbit:before{
       content:"";
       position:absolute; inset:0;
@@ -203,21 +175,69 @@
       width:28px; height:28px;
       border-radius:999px;
       background:rgba(251,191,36,.95);
-      left:8px; top:10px;
+      left:10px; top:12px;
       box-shadow: 0 18px 40px rgba(251,191,36,.25);
     }
 
-    .heroRight{
+    /* Photo frame */
+    .illustration{
+      width:min(420px, 100%);
+      aspect-ratio: 4 / 5;
+      border-radius:28px;
+      background:
+        radial-gradient(160px 160px at 30% 25%, rgba(251,191,36,.65), transparent 60%),
+        radial-gradient(240px 220px at 70% 40%, rgba(6,182,212,.55), transparent 62%),
+        radial-gradient(280px 240px at 45% 88%, rgba(167,139,250,.45), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.35));
+      border:1px solid rgba(15,23,42,.10);
       position:relative;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      padding:16px;
+    }
+
+    .profilePhoto{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:22px;
+      border:1px solid rgba(15,23,42,.10);
+      display:block;
+      background:rgba(255,255,255,.60);
+    }
+
+    .miniPill{
+      position:absolute;
+      bottom:18px;
+      left:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(15,23,42,.10);
+      box-shadow: 0 18px 46px rgba(2,6,23,.10);
+      font-weight:1000;
+      color:rgba(15,23,42,.82);
+    }
+    .miniDot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg, var(--pink), #f472b6);
+    }
+
+    .heroRight{
       padding:8px 6px;
+      position:relative;
     }
 
     .hello{
-      font-weight:900;
-      color:var(--pink);
-      letter-spacing:.2px;
-      font-size:20px;
       margin:0 0 10px;
+      font-weight:1000;
+      color:var(--pink);
+      font-size:20px;
+      letter-spacing:.2px;
     }
 
     .title{
@@ -226,7 +246,6 @@
       line-height:1.02;
       letter-spacing:-.8px;
     }
-
     .title .accent{
       display:block;
       color:rgba(15,23,42,.92);
@@ -235,7 +254,7 @@
     .sub{
       margin:14px 0 0;
       color:var(--muted);
-      max-width:52ch;
+      max-width:56ch;
       font-size:16px;
       line-height:1.7;
     }
@@ -252,13 +271,11 @@
       display:inline-flex;
       align-items:center;
       gap:12px;
-      font-weight:900;
-      border:none;
-      cursor:pointer;
+      font-weight:1000;
       padding:12px 16px;
       border-radius:14px;
-      background:rgba(255,255,255,.65);
-      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(15,23,42,.10);
       box-shadow: 0 16px 45px rgba(2,6,23,.08);
     }
 
@@ -273,9 +290,11 @@
     }
 
     .arrowHint{
-      display:flex; align-items:center; gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
       color:rgba(15,23,42,.70);
-      font-weight:700;
+      font-weight:1000;
       font-size:14px;
       margin-left:6px;
     }
@@ -291,11 +310,11 @@
       width:44px; height:44px;
       display:grid; place-items:center;
       border-radius:999px;
-      background:rgba(255,255,255,.65);
-      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(15,23,42,.10);
       box-shadow: 0 14px 40px rgba(2,6,23,.08);
     }
-    .social svg{opacity:.8}
+    .social svg{opacity:.85}
 
     .scrollDown{
       position:absolute;
@@ -306,7 +325,7 @@
       align-items:center;
       gap:10px;
       color:rgba(15,23,42,.55);
-      font-weight:700;
+      font-weight:1000;
       font-size:12px;
       user-select:none;
     }
@@ -334,7 +353,7 @@
       100%{transform:translate(-50%,0); opacity:1}
     }
 
-    /* Services */
+    /* Services section */
     .services{
       margin-top:34px;
       display:grid;
@@ -343,16 +362,12 @@
       align-items:start;
     }
 
-    .servicesIntro{
-      padding:18px 10px;
-    }
-
     .kicker{
-      font-weight:900;
+      margin:0 0 10px;
+      font-weight:1000;
       color:var(--pink);
       letter-spacing:.2px;
       font-size:14px;
-      margin:0 0 10px;
     }
 
     .h2{
@@ -372,8 +387,8 @@
     .roundBtn{
       width:44px; height:44px;
       border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.65);
+      border:1px solid rgba(15,23,42,.10);
+      background:rgba(255,255,255,.75);
       display:grid; place-items:center;
       box-shadow: 0 16px 40px rgba(2,6,23,.08);
       cursor:pointer;
@@ -391,9 +406,9 @@
       gap:14px;
     }
 
-    .card{
-      background:rgba(255,255,255,.70);
-      border:1px solid var(--stroke);
+    .svcCard{
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(15,23,42,.10);
       border-radius:22px;
       box-shadow: var(--shadow);
       padding:18px 16px;
@@ -402,7 +417,7 @@
       overflow:hidden;
     }
 
-    .cardIcon{
+    .svcIcon{
       width:54px; height:54px;
       border-radius:999px;
       display:grid; place-items:center;
@@ -410,12 +425,12 @@
       margin-bottom:12px;
     }
 
-    .card h3{
+    .svcCard h3{
       margin:0 0 8px;
       font-size:18px;
       letter-spacing:-.2px;
     }
-    .card p{
+    .svcCard p{
       margin:0;
       color:var(--muted);
       font-size:14px;
@@ -433,9 +448,65 @@
       opacity:.9;
     }
 
-    .card:nth-child(1) .cardIcon{background:linear-gradient(135deg, var(--purple), #7c3aed)}
-    .card:nth-child(2) .cardIcon{background:linear-gradient(135deg, var(--yellow), #f97316)}
-    .card:nth-child(3) .cardIcon{background:linear-gradient(135deg, var(--primary), #2563eb)}
+    .svcCard:nth-child(1) .svcIcon{background:linear-gradient(135deg, var(--purple), #7c3aed)}
+    .svcCard:nth-child(2) .svcIcon{background:linear-gradient(135deg, var(--yellow), #f97316)}
+    .svcCard:nth-child(3) .svcIcon{background:linear-gradient(135deg, var(--cyan), #2563eb)}
+
+    /* Portfolio + About + Contact */
+    .section{
+      margin-top:18px;
+    }
+    .sectionInner{
+      padding:18px 16px;
+    }
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      align-items:start;
+    }
+    .infoPill{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-start;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(15,23,42,.10);
+      background:rgba(255,255,255,.72);
+      font-weight:1000;
+    }
+    .infoPill span{color:var(--muted); font-weight:1000}
+
+    .workGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .workCard{
+      padding:16px;
+      border-radius:22px;
+      border:1px solid rgba(15,23,42,.10);
+      background:rgba(255,255,255,.75);
+      box-shadow: var(--shadow);
+    }
+    .workCard h3{margin:0 0 6px; font-size:18px; letter-spacing:-.2px}
+    .metaRow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin:10px 0 10px;
+    }
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:rgba(255,255,255,.72);
+      color:rgba(15,23,42,.75);
+      font-weight:1000;
+      font-size:12px;
+    }
+    ul{margin:0; padding-left:18px}
+    li{margin:7px 0; color:rgba(15,23,42,.88)}
+    .small{color:var(--muted); font-size:14px; line-height:1.6}
 
     /* Mobile */
     @media (max-width: 980px){
@@ -445,20 +516,324 @@
       .services{grid-template-columns:1fr}
       .cards{grid-template-columns:1fr}
       .menu{display:none}
-      .hamburger{display:inline-flex}
+      .twoCol{grid-template-columns:1fr}
+      .workGrid{grid-template-columns:1fr}
     }
+  </style>
+</head>
 
-    /* Mobile menu drawer */
-    .drawer{
-      position:fixed;
-      inset:0;
-      background:rgba(2,6,23,.45);
-      display:none;
-      z-index:50;
-      padding:16px;
-    }
-    .drawer.open{display:block}
-    .panel{
-      max-width:520px;
-      margin:14px auto 0;
-      background:rgba(255,255,255,.92);
+<body>
+  <div class="wrap" id="home">
+
+    <header class="nav">
+      <div class="brand">
+        <div class="logoMark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M5 8c0-1.7 1.3-3 3-3h2v6H8c-1.7 0-3-1.3-3-3z" fill="#22c55e"/>
+            <path d="M11 5h2v16h-2V5z" fill="#06b6d4"/>
+            <path d="M16 5h2c1.7 0 3 1.3 3 3s-1.3 3-3 3h-2V5z" fill="#fb7185"/>
+            <path d="M16 15h2c1.7 0 3 1.3 3 3s-1.3 3-3 3h-2v-6z" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <div>Portfolio</div>
+      </div>
+
+      <nav class="menu" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About us</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn primary" href="#contact">Let’s talk</a>
+      </div>
+    </header>
+
+    <main class="hero">
+      <section class="heroLeft card" aria-label="Hero photo">
+        <svg class="shapeStar" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M32 6l6 18h19l-15 11 6 18-16-11-16 11 6-18L7 24h19l6-18z"
+                stroke="#fb7185" stroke-width="3" stroke-linejoin="round" fill="rgba(251,113,133,.08)"/>
+        </svg>
+        <div class="shapeOrbit" aria-hidden="true"></div>
+
+        <div class="illustration">
+          <!-- IMPORTANT:
+               Put your photo file in the SAME folder as index.html.
+               Rename your photo to: tipu.jpg
+               Or change src to your actual filename, for example: ./myphoto.png
+          -->
+          <img class="profilePhoto" src="./tipu.jpg" alt="Mohammad Tipu Sultan" />
+
+          <div class="miniPill">
+            <div class="miniDot"></div>
+            <div>Open to work</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="heroRight" aria-label="Hero content">
+        <p class="hello">Hello, I’m Tipu</p>
+        <h1 class="title">
+          Professional
+          <span class="accent">Senior Android Engineer</span>
+        </h1>
+
+        <p class="sub">
+          I build reliable Android and WearOS products at scale. I led core system services for Galaxy Watch and now own
+          Android architecture for a fintech app serving 50,000 plus users.
+        </p>
+
+        <div class="ctaRow">
+          <a class="hireBtn" href="#contact">
+            <span class="hireIcon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M10 7h7v7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>Hire Me Now</span>
+          </a>
+
+          <div class="arrowHint" aria-hidden="true">
+            <svg width="44" height="20" viewBox="0 0 44 20" fill="none">
+              <path d="M2 10h30" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+              <path d="M28 3l10 7-10 7" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="socialRow" aria-label="Social links">
+          <a class="social" href="https://linkedin.com/in/tipu" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M6.5 10v8M6.5 6.5v.2M10.5 10v8M10.5 13.3c0-2.3 1.2-3.6 3.2-3.6 2.2 0 3.3 1.5 3.3 3.9V18"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+
+          <a class="social" href="https://github.com/tipu-s" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M9 19c-4 1.5-4-2-5-2m10 4v-3c0-.9.3-1.6.9-2-3 0-6-.4-6-5a4 4 0 0 1 1-2.8 3.7 3.7 0 0 1 .1-2.8S11 4.8 12 6c1-.3 2-.3 3 0 1-1.2 3-1.4 3-1.4a3.7 3.7 0 0 1 .1 2.8A4 4 0 0 1 19 11c0 4.6-3 5-6 5 .6.4.9 1.1.9 2V21"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a class="social" href="mailto:tipu.ru.cse@gmail.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16v10H4V7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M4 8l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="scrollDown" aria-hidden="true">
+          <div style="writing-mode:vertical-rl; transform:rotate(180deg);">Scroll Down</div>
+          <div class="mouse"></div>
+        </div>
+      </section>
+    </main>
+
+    <section class="services" id="services" aria-label="Services">
+      <div style="padding:18px 10px;">
+        <p class="kicker">SERVICES</p>
+        <h2 class="h2">I Provide Wide Range Of Digital Services</h2>
+
+        <div class="pager" aria-hidden="true">
+          <div class="roundBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="roundBtn primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="svcCard">
+          <div class="badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="svcIcon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M8 9h8M8 13h8M9 18h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+                    stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Android App Development</h3>
+          <p>Kotlin, Clean Architecture, Jetpack, performance, stability, and release ownership.</p>
+        </article>
+
+        <article class="svcCard">
+          <div class="badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="svcIcon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M8 8l-3 4 3 4M16 8l3 4-3 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 19l4-14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>WearOS and Systems</h3>
+          <p>Platform level thinking, sensor pipelines, resource safe design, and incident reduction.</p>
+        </article>
+
+        <article class="svcCard">
+          <div class="badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="svcIcon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l8 4v6c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Security and Quality</h3>
+          <p>Secure coding, runtime threat awareness, crash and ANR reduction, tests, and CI CD.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio" aria-label="Portfolio">
+      <div class="card sectionInner">
+        <p class="kicker">PORTFOLIO</p>
+        <h2 class="h2" style="font-size:28px;">Selected work and impact</h2>
+
+        <div class="workGrid" style="margin-top:14px;">
+          <div class="workCard">
+            <h3>Fintech Android Platform</h3>
+            <div class="metaRow">
+              <span class="tag">50,000 plus users</span>
+              <span class="tag">99.9 percent uptime</span>
+              <span class="tag">Retrofit</span>
+              <span class="tag">Flow</span>
+            </div>
+            <ul>
+              <li>Owned architecture and delivery for the core Android app.</li>
+              <li>Reduced network latency by 30 percent with improved integration patterns.</li>
+              <li>Led releases and CI CD to keep production builds predictable.</li>
+            </ul>
+          </div>
+
+          <div class="workCard">
+            <h3>Galaxy Watch System Services</h3>
+            <div class="metaRow">
+              <span class="tag">WearOS</span>
+              <span class="tag">10x stability</span>
+              <span class="tag">90 percent fewer incidents</span>
+              <span class="tag">C or C plus plus</span>
+            </div>
+            <ul>
+              <li>Technical lead for core services across Watch4 to Watch7.</li>
+              <li>Improved stability through disciplined root cause analysis and fixes.</li>
+              <li>Built secure ingestion pipelines from sensors to user facing features.</li>
+            </ul>
+          </div>
+
+          <div class="workCard">
+            <h3>Quotes Creator</h3>
+            <div class="metaRow">
+              <span class="tag">4.8 rating</span>
+              <span class="tag">10K plus downloads</span>
+              <span class="tag">Rendering</span>
+              <span class="tag">Sharing</span>
+            </div>
+            <p class="small">
+              Creative utility app with 30 plus fonts and 50 plus HD backgrounds, fast export, and social sharing.
+            </p>
+            <p class="small" style="margin-top:10px;">
+              <a class="btn" href="https://play.google.com/store/apps/details?id=com.diatomicsoft.quotescreator" target="_blank" rel="noreferrer">
+                View on Play Store
+              </a>
+            </p>
+          </div>
+
+          <div class="workCard">
+            <h3>Smart Bancharampur</h3>
+            <div class="metaRow">
+              <span class="tag">Community app</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">Retrofit</span>
+              <span class="tag">Jetpack</span>
+            </div>
+            <p class="small">
+              Utility app integrating local information, routes, and highlights. Reached 1,000 plus downloads.
+            </p>
+            <p class="small" style="margin-top:10px;">
+              <a class="btn" href="https://play.google.com/store/apps/details?id=com.diatomicsoft.bancharampur" target="_blank" rel="noreferrer">
+                View on Play Store
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-label="About">
+      <div class="card sectionInner">
+        <p class="kicker">ABOUT</p>
+
+        <div class="twoCol">
+          <div>
+            <h2 class="h2" style="font-size:28px;">Android engineer focused on stability, performance, and clean delivery</h2>
+            <p class="sub" style="margin-top:10px;">
+              I have 5 plus years building Android and WearOS products, from system services on Galaxy Watch to fintech apps
+              handling complex data. I like ownership: defining architecture, reducing incidents, and shipping reliable releases.
+            </p>
+          </div>
+
+          <div style="display:grid; gap:10px;">
+            <div class="infoPill"><strong style="min-width:110px;">Location</strong> <span>Manchester, UK</span></div>
+            <div class="infoPill"><strong style="min-width:110px;">Email</strong> <span>tipu.ru.cse@gmail.com</span></div>
+            <div class="infoPill"><strong style="min-width:110px;">Role</strong> <span>Senior Android Engineer</span></div>
+            <div class="infoPill"><strong style="min-width:110px;">Stack</strong> <span>Kotlin, WearOS, Compose</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-label="Contact">
+      <div class="card sectionInner">
+        <p class="kicker">CONTACT</p>
+        <h2 class="h2" style="font-size:28px;">Want to talk about a role?</h2>
+        <p class="sub" style="margin-top:8px;">Email me, or message on LinkedIn. I reply fast.</p>
+
+        <div class="ctaRow" style="margin-top:14px;">
+          <a class="btn primary" href="mailto:tipu.ru.cse@gmail.com">Email me</a>
+          <a class="btn" href="https://linkedin.com/in/tipu" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/tipu-s" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+
+        <p class="small" style="margin-top:12px;">
+          Phone: +44 07438 768349
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
